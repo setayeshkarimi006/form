@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="./style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>form-information</title>
+  </head>
+  <body>
+    <div id="app"></div>
+
+    <script>
+      const app = document.getElementById("app");
+
+      const fullName = prompt("نام و نام خانوادگی خود را وارد  کنید : "),
+        email = prompt("ایمیل خود را وارد کنید"),
+        phonenumbre = prompt("شماره تماس خود را وارد کنید :"),
+        address = prompt("آدرس خود را وارد کنید:"),
+        password = prompt("رمز عبور خود را وارد کنید: "),
+        repeatPassword = prompt("رمز عبور را دوباره وارد کنید: ");
+
+      const div = document.createElement("div");
+      const title = document.createElement("h2");
+
+      title.textContent = "فرم اعتبار سنجی ستایش";
+      title.style.color = "white";
+      title.style.marginBottom = "10px";
+
+      div.appendChild(title);
+
+      div.style.width = "400px";
+      div.style.minHeight = "400px";
+      div.style.margin = "auto";
+      div.style.backgroundColor = "#2b2b2b";
+      div.style.borderRadius = "20px";
+      div.style.padding = "30px";
+      div.style.gap = "25px";
+      div.style.marginTop = "130px";
+      div.style.display = "flex";
+      div.style.flexDirection = "column";
+      div.style.justifyContent = "center";
+      div.style.alignItems = "center";
+
+      app.appendChild(div);
+
+      const pName = document.createElement("p"),
+        pEmail = document.createElement("p"),
+        pPhone = document.createElement("p"),
+        pAddress = document.createElement("p"),
+        ppassword = document.createElement("p"),
+        prepeatPassword = document.createElement("p");
+
+      pName.style.width = "100%";
+      pName.style.height = "fit-content";
+      pName.style.padding = "20px";
+      pName.style.backgroundColor = "#892be2af";
+      pName.style.borderRadius = "12px";
+      pName.style.color = "White";
+      pEmail.style.width = "100%";
+      pEmail.style.height = "fit-content";
+      pEmail.style.padding = "20px";
+      pEmail.style.backgroundColor = "#892be2af";
+      pEmail.style.color = "White";
+      pEmail.style.borderRadius = "12px";
+      pPhone.style.width = "100%";
+      pPhone.style.height = "fit-content";
+      pPhone.style.padding = "20px";
+      pPhone.style.backgroundColor = "#892be2af";
+      pPhone.style.color = "White";
+      pPhone.style.borderRadius = "12px";
+      pAddress.style.width = "100%";
+      pAddress.style.height = "fit-content";
+      pAddress.style.padding = "20px";
+      pAddress.style.backgroundColor = "#892be2af";
+      pAddress.style.color = "White";
+      pAddress.style.borderRadius = "12px";
+      ppassword.style.width = "100%";
+      ppassword.style.height = "fit-content";
+      ppassword.style.padding = "20px";
+      ppassword.style.backgroundColor = "#892be2af";
+      ppassword.style.borderRadius = "12px";
+      ppassword.style.color = "White";
+      prepeatPassword.style.width = "100%";
+      prepeatPassword.style.height = "fit-content";
+      prepeatPassword.style.padding = "20px";
+      prepeatPassword.style.backgroundColor = "#892be2af";
+      prepeatPassword.style.borderRadius = "12px";
+      prepeatPassword.style.color = "White";
+
+      pName.textContent = fullName;
+      pEmail.textContent = email;
+      pPhone.textContent = phonenumbre;
+      pAddress.textContent = address;
+      ppassword.textContent = password;
+      prepeatPassword.textContent = repeatPassword;
+
+      div.appendChild(pName);
+      div.appendChild(pEmail);
+      div.appendChild(pPhone);
+      div.appendChild(pAddress);
+      div.appendChild(ppassword);
+      div.appendChild(prepeatPassword);
+
+      const passwordMessage = document.createElement("p");
+
+      if (password !== repeatPassword) {
+        passwordMessage.textContent =
+          "رمزها با هم مطابقت ندارند، دوباره تلاش کنید.";
+
+        passwordMessage.style.color = "red";
+      } else {
+        passwordMessage.textContent = "رمزها با هم مطابقت دارند.";
+
+        passwordMessage.style.color = "lightgreen";
+      }
+
+      div.appendChild(passwordMessage);
+
+      function addLable(text, targetElement) {
+        const lable = document.createElement("lable");
+        lable.textContent = text;
+        lable.style.color = "#d7d1f3";
+        lable.style.fontSize = "14px";
+        lable.style.marginTop = "10px";
+        lable.style.width = "100%";
+        lable.style.textAlign = "left";
+        div.insertBefore(lable, targetElement);
+      }
+      addLable("نام و نام خانوادگی:", pName);
+      addLable("ایمیل:", pEmail);
+      addLable("شماره تماس:", pPhone);
+      addLable("نشانی:", pAddress);
+      addLable("رمز عبور:", ppassword);
+      addLable("تکرار رمز عبود:", prepeatPassword);
+    </script>
+  </body>
+</html>

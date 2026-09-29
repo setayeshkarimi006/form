@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="./style1.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>first-js</title>
+  </head>
+  <body>
+    <div class="form">
+ <div class="close-icon" id="closeBtn">&times;</div>
+
+      <form id="signupForm">
+        <p class="Registration">Registration Form</p>
+
+        <div class="email">
+          <input class="email" type="text" id="email" placeholder="your email" />
+          <div id="emailError" class="error-text"></div>
+        </div>
+
+        <div class="password">
+          <input class="password" type="password" id="password" placeholder="your password" />
+          <div id="passError" class="error-text"></div>
+        </div>
+
+        <div class="seconde">
+          <input
+          class="seconde"
+            type="password"
+            id="confirmPassword"
+            placeholder="again your password"
+          />
+          <div id="confirmError" class="error-text"></div>
+        </div>
+
+        <button class="sabt" type="submit">ثبت نام</button>
+      </form>
+    </div>
+    <script>
+      const email = document.getElementById("email");
+      const password = document.getElementById("password");
+      const confirmPass = document.getElementById("confirmPassword");
+
+      email.addEventListener("input", () => {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email.value)) {
+          document.getElementById("emailError").textContent =
+            "ایمیل نامعتبر است!";
+        } else {
+          document.getElementById("emailError").textContent = "";
+        }
+      });
+
+      confirmPass.addEventListener("input", () => {
+        if (confirmPass.value !== password.value) {
+          document.getElementById("confirmError").textContent =
+            "رمزها مطابقت ندارند!";
+        } else {
+          document.getElementById("confirmError").textContent = "";
+        }
+      });
+      // ۱. انتخابِ فرم و ضربدر
+const form = document.getElementById("signupForm");
+const closeBtn = document.getElementById("closeBtn");
+const formContainer = document.querySelector(".form");
+
+// ۲. قابلیت بستن فرم با کلیک روی ضربدر
+closeBtn.addEventListener("click", () => {
+  formContainer.style.display = "none"; // کانتینر فرم رو مخفی می‌کنه
+});
+
+// ۳. قابلیت ثبت‌نام و چک کردن فیلدها
+form.addEventListener("submit", (e) => {
+  e.preventDefault(); // مهم: جلوگیری از رفرش شدن صفحه
+
+  // چک کردن اینکه آیا فیلدها خالی هستند؟
+  if (email.value === "" || password.value === "" || confirmPass.value === "") {
+    alert("لطفاً تمام فیلدها را پر کنید!");
+  } else if (password.value !== confirmPass.value) {
+    alert("رمزها مطابقت ندارند!");
+  } else {
+    alert("ثبت‌نام با موفقیت انجام شد!");
+    // اینجا می‌تونی فرم رو هم خالی کنی: form.reset();
+  }
+});
+
+    </script>
+  </body>
+</html>
